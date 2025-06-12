@@ -1,0 +1,2502 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História de Amor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a0933 0%, #2d1b4e 30%, #4a237a 60%, #6b46c1 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+            min-width: 320px;
+        }
+
+        /* Partículas flutuantes de corações */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(147, 51, 234, 0.4);
+            font-size: 20px;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Header com navegação elegante */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(26, 9, 51, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(147, 51, 234, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            margin-left: 100px;
+            font-size: 32px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #9333ea, #c084fc, #ddd6fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 24px;
+            cursor: pointer;
+            padding: 4px;
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background: #ffffff;
+            transition: all 0.3s ease-in-out;
+            border-radius: 2px;
+            transform-origin: center;
+        }
+
+        .menu-toggle span:nth-child(1) {
+            transform: translateY(0);
+        }
+
+        .menu-toggle span:nth-child(2) {
+            transform: translateY(0);
+        }
+
+        .menu-toggle span:nth-child(3) {
+            transform: translateY(0);
+        }
+
+        /* Estado ativo (X) */
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(10.5px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-10.5px) rotate(-45deg);
+        }
+
+        @keyframes glow {
+            from {
+                filter: drop-shadow(0 0 5px rgba(147, 51, 234, 0.5));
+            }
+
+            to {
+                filter: drop-shadow(0 0 20px rgba(147, 51, 234, 0.8));
+            }
+        }
+
+        .nav-links {
+            font-size: 16px;
+            display: flex;
+            list-style: none;
+            gap: 40px;
+
+            /* ALTERAR de 30px */
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            transition: width 0.3s ease;
+        }
+
+        .section-sp {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            flex-direction: column-reverse;
+
+
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(147, 51, 234, 0.2) 0%, transparent 70%);
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            z-index: 10;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #9333ea, #c084fc, #ddd6fe, #c084fc, #9333ea);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes textShimmer {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            color: #ddd6fe;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            /* ajuste se precisar */
+            height: 350px;
+            /* ajuste se precisar */
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .photo-slider {
+            margin-top: 20px;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            /* efeito de transição suave quando troca de imagem */
+            transition: opacity .6s ease;
+            opacity: 1;
+        }
+
+        /* --- Botões de navegação --- */
+        .timeline-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, .45);
+            border: none;
+            width: 44px;
+            height: 44px;
+            line-height: 42px;
+            text-align: center;
+            font-size: 1.8rem;
+            color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 2;
+            user-select: none;
+        }
+
+        .timeline-btn:hover {
+            background: rgba(0, 0, 0, .65);
+        }
+
+        .timeline-btn.prev {
+            left: 12px;
+        }
+
+        .timeline-btn.next {
+            right: 12px;
+        }
+
+        /* opcional: pausa o autoplay quando o usuário passa o mouse */
+        .timeline-photo-container:hover .timeline-photo {
+            animation-play-state: paused;
+        }
+
+        /* Contador de tempo */
+        .counter-section {
+            padding: 100px 50px;
+            text-align: center;
+            background: rgba(45, 27, 78, 0.4);
+        }
+
+        .counter-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #c084fc;
+        }
+
+        .counter-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .counter-item {
+            background: rgba(147, 51, 234, 0.2);
+            border-radius: 20px;
+            padding: 30px 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(147, 51, 234, 0.4);
+            min-width: 150px;
+            transition: transform 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .counter-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(147, 51, 234, 0.4);
+            background: rgba(147, 51, 234, 0.3);
+        }
+
+        #a {
+            margin-right: 50px;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .counter-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #9333ea;
+            display: block;
+        }
+
+        .counter-label {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0.8;
+            color: #ddd6fe;
+        }
+
+        /* Timeline de momentos especiais */
+        .timeline-section {
+            padding: 100px 50px;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1) 0%, rgba(192, 132, 252, 0.05) 100%);
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 70px;
+            color: #c084fc;
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .counter-section,
+        .timeline-section,
+        .gallery-section,
+        .messages-section,
+        .map-section,
+        .letter-generator-section {
+            padding: 80px 20px;
+            /* ALTERAR de 100px 50px */
+        }
+
+        /* Linha central da timeline */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #9333ea, #c084fc, #ddd6fe, #c084fc, #9333ea);
+            transform: translateX(-50%);
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 60px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 60%;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 60%;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: rgba(147, 51, 234, 0.15);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(147, 51, 234, 0.3);
+            background: rgba(147, 51, 234, 0.25);
+        }
+
+        /* Setas conectando à linha central */
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 20px solid transparent;
+            border-left-color: rgba(147, 51, 234, 0.3);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 20px solid transparent;
+            border-right-color: rgba(147, 51, 234, 0.3);
+        }
+
+        /* Círculos na linha central */
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            border-radius: 50%;
+            border: 4px solid #1a0933;
+            box-shadow: 0 0 20px rgba(147, 51, 234, 0.8);
+            z-index: 10;
+            animation: dotPulse 2s infinite;
+        }
+
+        @keyframes dotPulse {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: 0 0 20px rgba(147, 51, 234, 0.8);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                box-shadow: 0 0 30px rgba(147, 51, 234, 1);
+            }
+        }
+
+        .timeline-date {
+            color: #a350f1;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .timeline-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #c084fc;
+        }
+
+        .timeline-description {
+            opacity: 0.9;
+            line-height: 1.8;
+            color: #ddd6fe;
+        }
+
+        /* Galeria de fotos */
+        .gallery-section {
+            padding: 100px 50px;
+            background: rgba(45, 27, 78, 0.3);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .photo-placeholder {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.3), rgba(192, 132, 252, 0.3));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(147, 51, 234, 0.4);
+        }
+
+        .photo-placeholder::before {
+            
+            
+            opacity: 0.7;
+        }
+
+        .photo-placeholder:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(147, 51, 234, 0.5);
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.5), rgba(192, 132, 252, 0.5));
+        }
+
+        /* Seção de mensagens */
+        .messages-section {
+            padding: 100px 50px;
+            background: linear-gradient(135deg, rgba(192, 132, 252, 0.1) 0%, rgba(147, 51, 234, 0.05) 100%);
+        }
+
+        .message-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .love-message {
+            background: rgba(147, 51, 234, 0.15);
+            border-radius: 25px;
+            padding: 50px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            font-size: 1.3rem;
+            line-height: 2;
+            font-style: italic;
+            position: relative;
+            color: #ddd6fe;
+        }
+
+        .love-message::before {
+            content: '"';
+            font-size: 4rem;
+            color: #9333ea;
+            position: absolute;
+            top: 10px;
+            left: 30px;
+        }
+
+        .love-message::after {
+            content: '"';
+            font-size: 4rem;
+            color: #9333ea;
+            position: absolute;
+            bottom: 10px;
+            right: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(26, 9, 51, 0.8);
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid rgba(147, 51, 234, 0.3);
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-heart {
+            font-size: 2rem;
+            color: #9333ea;
+            margin: 20px 0;
+            animation: heartBeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartBeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* Mapa Interativo dos Lugares Especiais */
+        .map-section {
+            padding: 100px 50px;
+            background: linear-gradient(135deg, rgba(74, 35, 122, 0.2) 0%, rgba(147, 51, 234, 0.1) 100%);
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .interactive-map {
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(192, 132, 252, 0.05));
+            border-radius: 20px;
+            padding: 40px;
+            min-height: 500px;
+            position: relative;
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            backdrop-filter: blur(15px);
+            overflow: hidden;
+        }
+
+        .interactive-map::before {
+            content: '🗺️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 15rem;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .map-pin {
+            position: absolute;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .map-pin:hover {
+            transform: scale(1.2);
+        }
+
+        .pin-dot {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 20px rgba(147, 51, 234, 0.8);
+            animation: pinPulse 2s infinite;
+            position: relative;
+        }
+
+        .pin-dot::after {
+            content: '💜';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+        }
+
+        @keyframes pinPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(147, 51, 234, 0.8);
+            }
+
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 30px rgba(147, 51, 234, 1);
+            }
+        }
+
+        .pin-label {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(147, 51, 234, 0.9);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .map-pin:hover .pin-label {
+            opacity: 1;
+        }
+
+        .place-details {
+            background: rgba(147, 51, 234, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            backdrop-filter: blur(15px);
+            height: fit-content;
+        }
+
+        .place-card {
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .place-card.active {
+            display: block;
+        }
+
+        .place-card h3 {
+            color: #c084fc;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .place-card p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #ddd6fe;
+        }
+
+        .place-memory {
+            font-style: italic;
+            color: #dabdf5;
+            background: rgba(147, 51, 234, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #9333ea;
+            display: block;
+            margin-top: 15px;
+        }
+
+        /* Gerador de Cartas de Amor */
+        .letter-generator-section {
+            padding: 100px 50px;
+            background: rgba(45, 27, 78, 0.3);
+        }
+
+        .letter-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .rain-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .rain-heart {
+            position: absolute;
+            color: rgba(147, 51, 234, 0.6);
+            font-size: 16px;
+            animation: rainFall 8s linear infinite;
+            user-select: none;
+        }
+
+        @keyframes rainFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Foto do casal no hero */
+        .couple-photo-container {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .couple-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(147, 51, 234, 0.6);
+            box-shadow: 0 0 30px rgba(147, 51, 234, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(192, 132, 252, 0.2));
+        }
+
+        .couple-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(147, 51, 234, 0.6);
+            border-color: rgba(192, 132, 252, 0.8);
+        }
+
+        .photo-placeholder-hero {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(192, 132, 252, 0.1));
+        }
+
+        .photo-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            opacity: 0.7;
+        }
+
+        .photo-placeholder-hero p {
+            font-size: 0.9rem;
+            color: #ddd6fe;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        .couple-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Fotos na timeline */
+        .timeline-photo-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .timeline-photo {
+            background-size: cover;
+            width: 100%;
+            max-width: 350px;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid rgba(147, 51, 234, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(192, 132, 252, 0.1));
+        }
+
+        .spotify-section {
+            width: 100%;
+            /* ALTERAR de 800px */
+            max-width: 800px;
+
+            background: rgba(255, 255, 255, 0.8);
+            /* Fundo branco com opacidade */
+            border-radius: 20px;
+            /* Bordas arredondadas */
+            padding: 30px 20px;
+            /* Espaçamento interno */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            /* Sombra suave */
+            margin: 20px auto;
+            /* Margem superior e inferior */
+        }
+
+
+
+        .timeline-description {
+            font-size: 1.2rem;
+            /* Tamanho da fonte da descrição */
+
+            /* Cor da descrição */
+            margin-bottom: 30px;
+            /* Espaçamento abaixo da descrição */
+            line-height: 1.5;
+            /* Altura da linha para melhor legibilidade */
+        }
+
+        .spotify-player {
+            display: flex;
+            /* Flexbox para centralizar o iframe */
+            justify-content: center;
+            /* Centraliza horizontalmente */
+        }
+
+
+        .timeline-photo:hover {
+            transform: scale(1.1);
+            border-color: rgba(192, 132, 252, 0.8);
+            box-shadow: 0 0 15px rgba(147, 51, 234, 0.5);
+        }
+
+        .timeline-photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(192, 132, 252, 0.1));
+        }
+
+        .timeline-photo-icon {
+            font-size: 1.5rem;
+            opacity: 0.6;
+        }
+
+        .timeline-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+
+        .letter-controls {
+            text-align: center;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .love-button {
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(147, 51, 234, 0.4);
+        }
+
+        .love-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(147, 51, 234, 0.6);
+            background: linear-gradient(45deg, #7c3aed, #a855f7);
+        }
+
+        .mood-selector {
+            background: rgba(147, 51, 234, 0.2);
+            border: 1px solid rgba(147, 51, 234, 0.4);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .mood-selector option {
+            background: #1a0933;
+            color: white;
+        }
+
+        .letter-paper {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(247, 244, 255, 0.95));
+            color: #1a0933;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(147, 51, 234, 0.3);
+            position: relative;
+            min-height: 400px;
+            border: 1px solid rgba(147, 51, 234, 0.2);
+        }
+
+        .letter-paper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 80px;
+            bottom: 0;
+            width: 2px;
+            background: rgba(147, 51, 234, 0.2);
+        }
+
+        .letter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+        }
+
+        .letter-date {
+            color: #9333ea;
+            font-style: italic;
+        }
+
+        .letter-to {
+            color: #9333ea;
+            font-weight: bold;
+        }
+
+        .letter-content {
+            line-height: 2;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            min-height: 200px;
+        }
+
+        .letter-signature {
+            text-align: right;
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        .signature {
+            color: #9333ea;
+            font-weight: bold;
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .counter-container {
+                gap: 30px;
+            }
+
+            .map-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+
+        /* Responsividade para o mapa e carta */
+        @media (max-width: 768px) {
+            .logo {
+                margin: 0px;
+                font-size: 18px;
+            }
+
+            #a {
+                margin-right: 0px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(26, 9, 51, 0.95);
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                backdrop-filter: blur(15px);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .map-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .interactive-map {
+                min-height: 300px;
+                padding: 20px;
+            }
+
+            .letter-paper {
+                padding: 30px 20px;
+            }
+
+            .letter-controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .couple-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .photo-icon {
+                font-size: 2rem;
+            }
+
+            .photo-placeholder-hero p {
+                font-size: 0.8rem;
+            }
+
+            .timeline-photo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .timeline-photo-icon {
+                font-size: 1.2rem;
+            }
+
+
+
+
+
+            header {
+                padding: 15px 20px;
+            }
+
+
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .counter-container {
+                gap: 20px;
+            }
+
+            .counter-item {
+                min-width: 120px;
+                padding: 20px 15px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 50px;
+            }
+
+            .timeline-line {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 80px;
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -20px;
+                right: auto;
+                border: 20px solid transparent;
+                border-right-color: rgba(147, 51, 234, 0.3);
+                border-left-color: transparent;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .letter-paper {
+                padding: 30px 20px;
+            }
+
+            .letter-controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .couple-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .timeline-photo {
+                width: 280px;
+                height: 160px;
+            }
+
+            .love-message {
+                padding: 30px 20px;
+                font-size: 1.1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .counter-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .counter-item {
+                width: 90%;
+                max-width: 250px;
+            }
+
+            .timeline-content {
+                padding: 20px;
+            }
+
+            .timeline-title {
+                font-size: 1.5rem;
+            }
+
+            .couple-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .timeline-photo {
+                max-width: 250px;
+                height: 140px;
+            }
+
+            .love-message {
+                padding: 25px 15px;
+                font-size: 1rem;
+            }
+
+            .love-message::before,
+            .love-message::after {
+                font-size: 3rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .photo-placeholder {
+                min-height: 200px;
+            }
+
+            .letter-paper::before {
+                left: 40px;
+            }
+
+            .footer-content {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .counter-number {
+                font-size: 2.5rem;
+            }
+
+            .timeline-content {
+                padding: 15px;
+            }
+
+            .love-message {
+                padding: 20px 10px;
+            }
+        }
+
+
+        /* Animações de scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Partículas flutuantes -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo"><a href="#home" style="text-decoration: none;">💜 Sabrina & Kauã</a></div>
+            <ul class="nav-links">
+                <li class="links"><a href="#home">Início</a></li>
+                <li class="links"><a href="#contador">Tempo Juntos</a></li>
+                <li class="links"><a href="#timeline">Timeline</a></li>
+                <li class="links"><a href="#mapa">Lugares</a></li>
+                <li class="links"><a href="#carta">Carta</a></li>
+                <li class="links"><a href="#galeria">Galeria</a></li>
+                <li class="links" id="a"><a href="#mensagem">Mensagem</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="couple-photo-container">
+                <div class="couple-photo" id="couplePhoto">
+                    <div class="photo-placeholder-hero"
+                        style="background-image: url(CasaldoSeculo.jpg); background-position: left center; background-size: cover;">
+
+                    </div>
+                    <input type="file" id="couplePhotoInput" accept="image/*" style="display: none;">
+                </div>
+            </div>
+            <h1>Nosso Amor Infinito</h1>
+            <p>Uma jornada que começou com um olhar e se transformou em eternidade</p>
+        </div>
+
+    </section>
+
+    <!-- Contador de Tempo -->
+    <section id="contador" class="counter-section fade-in">
+
+        <h2 class="counter-title">Tempo Juntos</h2>
+        <p style="margin-bottom: 30px;  font-size: 1.5rem;
+    
+    opacity: 0.9;
+    color: #ddd6fe;">Nosso Amor crescendo a cada segundo!</p>
+        <div class="counter-container">
+            <div class="counter-item">
+                <span class="counter-number" id="years">0</span>
+                <div class="counter-label">Anos</div>
+            </div>
+            <div class="counter-item">
+                <span class="counter-number" id="months">0</span>
+                <div class="counter-label">Meses</div>
+            </div>
+            <div class="counter-item">
+                <span class="counter-number" id="days">0</span>
+                <div class="counter-label">Dias</div>
+            </div>
+            <div class="counter-item">
+                <span class="counter-number" id="hours">0</span>
+                <div class="counter-label">Horas</div>
+            </div>
+            <div class="counter-item">
+                <span class="counter-number" id="minutes">0</span>
+                <div class="counter-label">Minutos</div>
+            </div>
+            <div class="counter-item">
+                <span class="counter-number" id="seconds">0</span>
+                <div class="counter-label">Segundos</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline de Momentos -->
+    <section id="timeline" class="timeline-section fade-in">
+        <h2 class="section-title">Nossa Linha do Tempo</h2>
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">10 de Novembro, 2023</div>
+                    <h3 class="timeline-title">O Grande Dia</h3>
+                    <p class="timeline-description">O dia em que decide fazer a escolha da minha vida, seguir nessa
+                        jornada ao seu lado, essa trilha que chamos de vida. E com o passar do tempo tenho ainda mais
+                        certeza que fiz a escolha certa ❤️</p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(Pedido2.jpg); background-size: cover; height: 300px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">17 de Dezembro, 2023</div>
+                    <h3 class="timeline-title">Primeiro Show Juntos!!</h3>
+                    <p class="timeline-description">Nossooo primeiro show juntinhossss, de um dos seus cantores
+                        favoritosss</p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(show.jpg); background-size: cover; background-position: center center; height: 300px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">25 de Dezembro, 2023</div>
+                    <h3 class="timeline-title">Primeiro Natal Juntos UHUUUUULLLL!!</h3>
+                    <p class="timeline-description">Esse sem dúvidas foi um dos dias mais nervosos da minha vida, o medo
+                        da sua fámilia não gostar me deixava em choque mas no final deu tudo certo, afinal somos feito
+                        um pro outroooo"</p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(natal.jpg); background-size: cover; background-position: center center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">6 de Janeiro, 2024</div>
+                    <h3 class="timeline-title">Nossa Formatura!</h3>
+                    <p class="timeline-description">Um dos dias que mais estavamos aguardando, para comemorarmos da
+                        melhor forma e com melhor estilo. Dando inicio um nova etapa da nossa vida <3 </p>
+                            <!-- ADICIONAR ESTA PARTE: -->
+                            <div class="timeline-photo-container">
+                                <div class="timeline-photo" data-timeline="primeiro-encontro"
+                                    style="background-image: url(Formatura.jpg); background-size: cover; background-position: center center; height: 320px;">
+
+                                </div>
+                            </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">14 de Janeiro, 2024</div>
+                    <h3 class="timeline-title">Pescaria de Milhões!</h3>
+                    <p class="timeline-description">O dia que mostrou seus dons de pesca, com tanto tempo de experiencia
+                        sendo uma pricesa dos mares, uma Sereiaaa </p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(pescaria.jpg); background-size: cover; background-position: center center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">10 de Fevereiro, 2024</div>
+                    <h3 class="timeline-title">Minha nova Casa!!</h3>
+                    <p class="timeline-description">Um dos dias mais importantes para mim, que a sua presença não
+                        poderia faltar, para me ajudar a escolher minha nova casa e trilhar meu caminho na faculdade.
+                        Percebia cada vez mais que realmente era você o Amor da minha Vida! E como o universo guia
+                        nossos caminhos para melhorar essa viagem completavamos 3 meses incriveis de namorooo!!</p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(casa.jpg); background-size: cover; background-position: center center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">10 de Março, 2024</div>
+                    <h3 class="timeline-title">Nossa viagem de 4 MESES!!!</h3>
+                    <p class="timeline-description">A primeira vez que você pode vir para rancho, aproveitar as pescas e
+                        as aventuras junto de mim, minha familia e pra melhorar junto com a sua familia no rancho</p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(rancho.jpg); background-size: cover; background-position: center center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">10 de Março, 2024</div>
+                    <h3 class="timeline-title">Não podia faltar</h3>
+                    <p class="timeline-description">ESSA FOTO NÂO PODIA FALTAR NA NOSSA LINHA DO TEMPO </p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(rancho2.jpg); background-size: cover; background-position: center center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">6 de Abril, 2024</div>
+                    <h3 class="timeline-title">Nossa Primeira Receita Monster !!</h3>
+                    <p class="timeline-description">O dia que decidimos nos aventurar na cozinha usando nossas tecnicas
+                        milenares e a conclusão foi essa obra de arte</p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(bolo.jpg); background-size: cover; background-position: center center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">7 de Abril, 2024</div>
+                    <h3 class="timeline-title">Minha primeira vez viajando para assistir o seu show em quadras!</h3>
+                    <p class="timeline-description">Esse dia o seu maior fã, maior admirador, maior adorador, maior
+                        idolatradorrrr do mundoo, tambem conhecido como seu namoradooooo, precisou assistir voce em
+                        quadraaaaaa ! </p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(quadra.jpg); background-size: cover; background-position: top center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">24 de Abril, 2024</div>
+                    <h3 class="timeline-title">O Seu Grande dia</h3>
+                    <p class="timeline-description">O dia que estavamosss extremamentes ansiososs, para comemorar o seu
+                        grande dia, seu 18touuuu!!. E comemoramos com certeza da melhor forma, sendo um dos dias mais
+                        felizes para mim </p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(aniversario.jpg); background-size: cover; background-position: top center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">11 de Maio, 2024</div>
+                    <h3 class="timeline-title">Aprimorando habilidades</h3>
+                    <p class="timeline-description">O dia que decidiu aprimorar suas tecnicas profissionais, para
+                        agregar ainda mais seus conhecimentos e eu precisava estar la pra assistir </p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(profissional.jpg); background-size: cover; background-position: top center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">12 de Junho, 2024</div>
+                    <h3 class="timeline-title">NOSSO PRIMEIRO DIA DOS NAMORADOS</h3>
+                    <p class="timeline-description">UM dos dias mais importantes para mim e para nosso releccionamento,
+                        comemorarmos o tão esperado dia, nunca tinha sentido esse sentimento, de emoção, alegria,
+                        ansiedade tudo junto. Esperando ansiosamente para te ver e aproveitar o nosso dia e que nós
+                        representa</p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(diaN.jpg); background-size: cover; background-position: top center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">15 de Junho, 2024</div>
+                    <h3 class="timeline-title">COMEMORAÇÃO DOS DIAS DOS NAMORADOSS!!! (Nosso dia!!!!)</h3>
+                    <p class="timeline-description">O dia que precisavamos comemorar em um lugar bonito e elegante do
+                        jeito que somos. Para aproveitar da melhor forma e melhor companhia. Comemorando tudo que
+                        fizemos e o que estamos fazendo e o que iremos fazer do CASAL BIGMONSTER te amo meu amor. Melhor
+                        Role da vidaaaa</p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(a.jpg); background-size: cover; background-position: top center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">10 de Novembro 2024</div>
+                    <h3 class="timeline-title">Finalmente 1 ANOOOOO!!</h3>
+                    <p class="timeline-description">O dia mais esperado, aguardado, imaginavel CHEGOU. O dia que maiss
+                        queria que chegasse para finalmente comemorarmos da melhor forma, louco para te ver e encher de
+                        carinho. Que finalmente chegou, mais um marco em nosso relacionamento, um ano de pura alegria,
+                        felicidade, sentimento, amor, tudo da melhor forma e companhia. Não sei como explicar esse ano,
+                        so tenho ate agradecer meu amor te amo!!</p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(1ano.jpg); background-size: cover; background-position: center center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Não LEMBRO A DATA</div>
+                    <h3 class="timeline-title">TRABALHANDO COM O SOGRÂO</h3>
+                    <p class="timeline-description">O dia que o melhor funcionario da kintech foi contratado para
+                        representar mundo a fora. Precisava lembrar desse dia</p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(trabalho.jpg); background-size: cover; background-position: center center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">24 de Dezembro, 2024</div>
+                    <h3 class="timeline-title">PRIMEIRA VEZ NA PRAIA JUNTOS!!</h3>
+                    <p class="timeline-description">A MELHOR IDA NA PRAIA COM CERTEZA, lembro de estarmos tão ansiosos
+                        para esse dia que não sabiamos explicar, e quando finalmente fomos foi uma das melhores viagens
+                        que ja fiz, muita diversão farra, correria, curtição, muito amor, estavamos lindos, tudo
+                        perfeito, e só voce, apenas você poderia me fazer sentir isso, ADOREI A NOSSA Viagem</p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(praia.jpg); background-size: cover; background-position: center center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">29 de Dezembro, 2024</div>
+                    <h3 class="timeline-title">PESSIMO DIA</h3>
+                    <p class="timeline-description">dias depois da nossa incrivel viagem ocorreu o pior, mas ainda bem
+                        que apenas eu me machuquei amem, ia ficar me remoendo e odiando se algo ouvesse com você, mas
+                        graças a deus nada ocorreu. MAs o que era para ser o pior, foi algo apenas ruim. Você conseguiu
+                        me ajudar, me apoiar sempre estava la para me prestar suporte me alegrar, te amo meu amor você
+                        torna minha vida, uma sessão que todos querem sentir, o que chamam de viver um sonho. Sou
+                        extremamente grato a você minha princesa te amo!</p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(acidente.jpg); background-size: cover; background-position: center center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">1 de Janeiro, 2025</div>
+                    <h3 class="timeline-title">2 Viradaaa</h3>
+                    <p class="timeline-description">Após todos ocorrido tivemos nossa SEGUNDA VIRADAA de ANOOOO JUNTOS
+                        UHUULLL</p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(virada.jpg); background-size: cover; background-position: center center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">13 de Abril, 2025</div>
+                    <h3 class="timeline-title">Aventureiross!!</h3>
+                    <p class="timeline-description">Perto do seu aniversario depois de muita enrolação conseguimos ir
+                        para nossa grande aventura, deslumbrar a grande natureza e trazer nosso espirito radical, que
+                        mesmo passando um pouco de estressee acredito que gostou KKKK </p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(aventureiro.jpg); background-size: cover; background-position: bottom center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">20 de Abril, 2025</div>
+                    <h3 class="timeline-title">PRAIA 2.0</h3>
+                    <p class="timeline-description">Mais uma viagem incrivel na praia, onde nos divertimos muitos mas
+                        não tiremo muitas fotos X( </p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(praia3.jpg); background-size: cover; background-position: bottom center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date"> 1 de Junho, 2025</div>
+                    <h3 class="timeline-title">Sua Corridona</h3>
+                    <p class="timeline-description">O dia que vocÊ demonstrou toda sua força e seu treinamento se
+                        provando uma MULHER EXTREMAMENTE DEDICADA FORTE e FOCADA. Me ORGULHANDO MAIS UMA VEZ</p>
+                    <!-- ADICIONAR ESTA PARTE: -->
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(corrida.jpg); background-size: cover; background-position: center center; height: 320px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="section-sp">
+        <section class="spotify-section">
+            <h2 class="section-title">Nossa Música</h2>
+            <p class="timeline-description" style="color: #333;">O dia em que fomos no nosso primeiro show, que
+                descobrimos que realmente eramos
+                feitos um para o outro. Onde o universo tocou essa musica que representa o nosso amor</p>
+            <div class="spotify-player">
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/3UStHHOyFXetR5621bKJBz?utm_source=generator&theme=0"
+                    width="100%" height="352" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+            </div>
+        </section>
+    </div>
+    <!-- Mapa Interativo dos Lugares Especiais -->
+    <section id="mapa" class="map-section fade-in">
+        <h2 class="section-title">Mapa dos Nossos Lugares Especiais</h2>
+        <div class="map-container">
+            <div class="interactive-map" id="loveMap">
+                <div class="map-pin" data-place="primeiro-encontro" style="top: 30%; left: 25%;">
+                    <div class="pin-dot"></div>
+                    <div class="pin-label">Primeiro Encontro</div>
+                </div>
+                <div class="map-pin" data-place="primeira-viagem" style="top: 20%; left: 60%;">
+                    <div class="pin-dot"></div>
+                    <div class="pin-label">Primeira Viagem</div>
+                </div>
+                <div class="map-pin" data-place="restaurante-favorito" style="top: 50%; left: 40%;">
+                    <div class="pin-dot"></div>
+                    <div class="pin-label">Nosso Restaurante</div>
+                </div>
+                <div class="map-pin" data-place="parque-passeios" style="top: 70%; left: 70%;">
+                    <div class="pin-dot"></div>
+                    <div class="pin-label">Primeiro dia Dos NAMORADOS</div>
+                </div>
+                <div class="map-pin" data-place="casa-juntos" style="top: 60%; left: 15%;">
+                    <div class="pin-dot"></div>
+                    <div class="pin-label">Ponto De Paz</div>
+                </div>
+            </div>
+
+            <div class="place-details" id="placeDetails">
+                <div class="place-card" data-place="primeiro-encontro">
+                    <h3>Praça da Bandeira <img width="20px" src="https://flagcdn.com/w80/br.png"
+                            alt="Bandeira do Brasil"></h3>
+                    <p>Foi aqui que tudo começou.Nós encontramos logo apos seu treino e decidimos curtir com nossos
+                        amigos e daqui pra frente só HIstoria</p>
+                    <span class="place-memory">E ainda conseguimos vender um livro para Raissa KKKK</span>
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url('https://s2-g1.glbimg.com/mFgYXoM0ItTOff337adtx9zBArA=/0x0:1024x768/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2023/W/d/LnAemHSHixq1DlF4GPxQ/whatsapp-image-2023-01-27-at-09.29.13.jpeg'); background-size: cover; background-position: bottom center;">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="place-card" data-place="primeira-viagem">
+                    <h3>Araçatuba sua terra natal</h3>
+                    <p>Nossa primeira viagem juntos! Primeiro lugar que você decidiu me arrastar e da li pra frente sou
+                        grudado KKKKK</p>
+                    <span class="place-memory">um Dia antes do natal decidimos ir no shopping curtir umas brincadeiras e
+                        você como sempre mostrando seus dons KKKKK</span>
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url(shop.jpg); background-size: cover; background-position: center center;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="place-card" data-place="restaurante-favorito">
+                    <h3>Natureba 🍋 - Nosso Point</h3>
+                    <p>Nosso lugar especial para comemorações. Cada mêsversario precisamos comemorar nossa conquista,
+                        zerando a tabela de sucos KKKKK
+                    </p>
+                    <span class="place-memory">Lembro até como decidimos, que precisavamos ter um point nosso para
+                        comemoramos e estavamos em uma vibe fitness ai encontramos KKKK</span>
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url('https://tupaonline.com.br/images/foto_peq_215120.jpg'); background-size: cover; background-position: center center;">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="place-card" data-place="parque-passeios">
+                    <h3>Cachaçaria</h3>
+                    <p>Lugar que eu decidi te levar para comemorar nosso primeiro dia dos namorados</p>
+                    <span class="place-memory">Lembro de estarmos um pouco assustados com o preço mas no final sempre
+                        vale apena KKKKK</span>
+                    <div class="timeline-photo-container">
+                        <div class="timeline-photo" data-timeline="primeiro-encontro"
+                            style="background-image: url('https://s2-pegn.glbimg.com/BumBQrHop3HuyvZ-REs6jqYrKI4=/820x420/smart/filters:strip_icc()/s2.glbimg.com/Xt7_nzcjadO_3h0WPw7Oho3Z7u4%3D/600x0/filters%3Aquality%2870%29/i.s3.glbimg.com/v1/AUTH_ba41d7b1ff5f48b28d3c5f84f30a06af/internal_photos/bs/2022/8/O/Jzmk0BTZ2wqmxcdHuz1w/jpg'); background-size: cover; background-position: center center;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="place-card" data-place="casa-juntos">
+                    <h3>Nossos Lares</h3>
+                    <p>O lugar onde criamos nossa rotina de amor. filmes no sofá, abraços e beijinhos que
+                        curam qualquer dia ruim.</p>
+                    <span class="place-memory">Quatro paredes que guardam infinitas memórias e o eco dos nossos 'eu te
+                        amo' que representa todo nosso amor</span>
+                    <div class="slider-container">
+                        <button class="timeline-btn prev">&#10094;</button>
+                        <div class="photo-slider" data-timeline="primeiro-encontro"></div>
+                        <button class="timeline-btn next">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gerador de Cartas de Amor -->
+    <section id="carta" class="letter-generator-section fade-in">
+        <h2 class="section-title">Gerador de Cartas de Amor</h2>
+        <div class="letter-container">
+            <div class="letter-controls">
+                <button class="love-button" onclick="generateLetter()">💜 Gerar Nova Carta</button>
+                <div class="letter-options">
+                    <select id="letterMood" class="mood-selector">
+                        <option value="romantic">Romântica</option>
+                        <option value="playful">Divertida</option>
+                        <option value="nostalgic">Nostálgica</option>
+                        <option value="grateful">Agradecida</option>
+                        <option value="dreamy">Sonhadora</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="letter-paper" id="letterPaper">
+                <div class="letter-header">
+                    <div class="letter-date" id="letterDate"></div>
+                    <div class="letter-to">Para minha BigMonster ❤️</div>
+                </div>
+                <div class="letter-content" id="letterContent">
+                    <p>Clique no botão para gerar uma carta especial...</p>
+                </div>
+                <div class="letter-signature">
+                    Com todo meu amor,<br>
+                    <span class="signature">Seu coração apaixonado 💜</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria -->
+    <section id="galeria" class="gallery-section fade-in">
+        <h2 class="section-title">Nossa Galeria de Memórias</h2>
+        <div class="gallery-grid">
+            <div class="photo-placeholder" style="background-image: url(galeria/ft1.jpg); background-size: cover; background-position: bottom center;"></div>
+            <div class="photo-placeholder" style="background-image: url(galeria/ft2.jpg); background-size: cover;"></div>
+            <div class="photo-placeholder" style="background-image: url(galeria/ft3.jpg); background-size: cover; background-position: center center;"></div>
+            <div class="photo-placeholder" style="background-image: url(galeria/ft4.jpg); background-size: cover;  background-position: center center;"></div>
+            <div class="photo-placeholder" style="background-image: url(galeria/ft5.jpg); background-size: cover; background-position: center center;"></div>
+            <div class="photo-placeholder" style="background-image: url(galeria/gatissima.jpg); background-size: cover;"></div>
+            <div class="photo-placeholder" style="background-image: url(galeria/ft77.jpg); background-size: cover;"></div>
+            <div class="photo-placeholder" style="background-image: url(galeria/ft8.jpg); background-size: cover;"></div>
+            <div class="photo-placeholder" style="background-image: url(galeria/ft9.jpg); background-size: cover; background-position: center center;"></div>
+        </div>
+    </section>
+
+    <!-- Mensagem de Amor -->
+    <section id="mensagem" class="messages-section fade-in">
+        <h2 class="section-title">Mensagem do Coração</h2>
+        <div class="message-container">
+            <div class="love-message">
+                Você é a pessoa que faz meu coração bater mais forte, que traz luz aos meus dias mais escuros e que
+                transforma momentos simples em memórias inesqueciveis. Cada dia ao seu lado é um presente, cada sorriso seu é
+                minha motivação, cada "eu te amo" é a certeza de que encontrei minha alma gêmea o amor da minha vida. Obrigado por me amar, por me dar a oportunidade de passar a vida ao seu lado para construirmos a Historia mais linda ja vista. TE AMO MINHA BIGMONSTER!!!
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-heart">💜</div>
+            <p>Feito com muito amor para celebrar nossa história</p>
+            <p>© 2025 - Nossa História de Amor Infinito</p>
+        </div>
+    </footer>
+    <div class="rain-hearts" id="rainHearts"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Criar o botão hambúrguer se não existir
+            const nav = document.querySelector('nav');
+            let menuToggle = document.querySelector('.menu-toggle');
+
+            if (!menuToggle) {
+                menuToggle = document.createElement('div');
+                menuToggle.className = 'menu-toggle';
+                menuToggle.innerHTML = '<span></span><span></span><span></span>';
+                nav.appendChild(menuToggle);
+            }
+
+            const navLinks = document.querySelector('.nav-links');
+
+            menuToggle.addEventListener('click', function () {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+
+            // Fechar menu ao clicar em um link
+            const links = navLinks.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                });
+            });
+
+            // Fechar menu ao clicar fora
+            document.addEventListener('click', function (e) {
+                if (!nav.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                }
+            });
+        });
+        const images = [
+            'foto1.jpg',
+            'foto2.jpg',
+            'foto3.jpg',
+            'foto4.jpg'
+        ];
+
+        let current = 0;               // foto atual
+        const photoEl = document.querySelector('.photo-slider');
+        const prevBtn = document.querySelector('.timeline-btn.prev');
+        const nextBtn = document.querySelector('.timeline-btn.next');
+
+        /* ----- funções auxiliares ----- */
+        function showImage(index) {
+            // faz o índice “dar a volta” (ex.: -1 vira último, último+1 vira 0)
+            current = (index + images.length) % images.length;
+
+            // esmaece, troca a imagem e volta a opacidade
+            photoEl.style.opacity = 0;
+            setTimeout(() => {
+                photoEl.style.backgroundImage = `url('${images[current]}')`;
+                photoEl.style.opacity = 1;
+            }, 300); // a metade do transition (.6 s) para ficar suave
+        }
+
+        /* ----- controles manuais ----- */
+        prevBtn.addEventListener('click', () => showImage(current - 1));
+        nextBtn.addEventListener('click', () => showImage(current + 1));
+
+        /* ----- autoplay ----- */
+        const AUTO_TIME = 5000; // 5 s por slide; ajuste à vontade
+        let auto = setInterval(() => showImage(current + 1), AUTO_TIME);
+
+        // pausa o autoplay quando o usuário interage
+        ['mouseenter', 'focusin'].forEach(evt => {
+            document.querySelector('.slider-container')
+                .addEventListener(evt, () => clearInterval(auto));
+        });
+        ['mouseleave', 'focusout'].forEach(evt => {
+            document.querySelector('.slider-container')
+                .addEventListener(evt, () => auto = setInterval(() => showImage(current + 1), AUTO_TIME));
+        });
+
+        /* ----- inicialização ----- */
+        showImage(current);
+        // Ajustar altura do viewport em dispositivos móveis
+        function setViewportHeight() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        setViewportHeight();
+        window.addEventListener('resize', setViewportHeight);
+
+        
+       const startDate = new Date('2023-11-10T00:00:00');
+
+function updateCounter() {
+    const now = new Date();
+
+    let years = now.getFullYear() - startDate.getFullYear();
+    let months = now.getMonth() - startDate.getMonth();
+    let days = now.getDate() - startDate.getDate();
+
+    // Ajusta dias negativos
+    if (days < 0) {
+        months--;
+        const previousMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+        days += previousMonth.getDate();
+    }
+
+    // Ajusta meses negativos
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    const hours = now.getHours() - startDate.getHours();
+    const minutes = now.getMinutes() - startDate.getMinutes();
+    const seconds = now.getSeconds() - startDate.getSeconds();
+
+    document.getElementById('years').textContent = years;
+    document.getElementById('months').textContent = months;
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+}
+
+        // Atualizar contador a cada segundo
+        setInterval(updateCounter, 1000);
+        updateCounter();
+
+        // Criar corações flutuantes
+        function createFloatingHearts() {
+            const heartsContainer = document.getElementById('floatingHearts');
+
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '💜';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+
+                heartsContainer.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 15000);
+            }
+
+            setInterval(createHeart, 100);
+        }
+
+        // Animações de scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            const timelineItems = document.querySelectorAll('.timeline-item');
+
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+
+            // Animar itens da timeline
+            timelineItems.forEach((item, index) => {
+                const itemTop = item.getBoundingClientRect().top;
+                const itemVisible = 200;
+
+                if (itemTop < window.innerHeight - itemVisible) {
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                    }, index * 200);
+                }
+            });
+        }
+
+        // Smooth scroll para navegação
+        function setupSmoothScroll() {
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Efeito de hover nas fotos da galeria
+        function setupGalleryEffects() {
+            const photoPlaceholders = document.querySelectorAll('.photo-placeholder');
+
+            photoPlaceholders.forEach(photo => {
+                photo.addEventListener('click', () => {
+                    alert('Clique para adicionar uma foto especial! 📷💜');
+                });
+            });
+        }
+
+        // Header transparente no scroll
+        function setupHeaderScroll() {
+            const header = document.querySelector('header');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(26, 9, 51, 0.95)';
+                } else {
+                    header.style.background = 'rgba(26, 9, 51, 0.9)';
+                }
+            });
+        }
+
+        setupInteractiveMap()
+
+        // Mapa Interativo dos Lugares Especiais
+        function setupInteractiveMap() {
+            const mapPins = document.querySelectorAll('.map-pin');
+            const placeCards = document.querySelectorAll('.place-card');
+
+            // Mostrar primeiro lugar por padrão
+            if (placeCards.length > 0) {
+                placeCards[0].classList.add('active');
+            }
+
+            mapPins.forEach(pin => {
+                pin.addEventListener('click', () => {
+
+                    const place = pin.getAttribute('data-place');
+
+                    // Remover active de todos os cards
+                    placeCards.forEach(card => card.classList.remove('active'));
+
+                    // Mostrar card correspondente
+                    const targetCard = document.querySelector(`.place-card[data-place="${place}"]`);
+                    if (targetCard) {
+                        targetCard.classList.add('active');
+                    }
+
+                    // Efeito visual no pin clicado
+                    mapPins.forEach(p => p.style.transform = 'scale(1)');
+                    pin.style.transform = 'scale(1.3)';
+
+                    setTimeout(() => {
+                        pin.style.transform = 'scale(1)';
+                    }, 300);
+                });
+            });
+        }
+
+        // Gerador de Cartas de Amor
+        const loveLetters = {
+            romantic: [
+                "Quando penso em você, meu coração se enche de uma sensação unica e infinita. Cada momento ao seu lado é como um verso que marca a minha mente com memorias suas",
+                "Você é a melodia mais doce que já tocou em meu coração. Cada batida ecoa seu nome, cada suspiro carrega seu perfume.",
+                "Em seus olhos encontro o reflexo de todos os meus sonhos realizados e que pretendo realizar. Você é a resposta para perguntas que eu nem sabia que tinha.",
+                "Nosso amor é como as estrelas no céu - eterno, brilhante e capaz de iluminar mesmo a noite mais escura da minha vida."
+            ],
+            playful: [
+                "Você roubou meu coração e eu nem vou fazer boletim de ocorrência! Prefiro que fique guardadinho aí com você mesmo.",
+                "Se o amor fosse um jogo, você seria meu hack favorito - sempre me fazendo ganhar sem nem precisar tentar!",
+                "Dizem que o amor é o melhor remédio, então você deve ser farmacêutica, porque não paro de te amar",
+                "Você é como WiFi - essencial, me conecta com a felicidade e quando não está por perto, nada funciona direito!"
+            ],
+            nostalgic: [
+                "Lembro do primeiro dia em que te vi e penso: que sorte a minha ter falado com as pessoa certa, ter te elogiada para a Raissa, para iniciar tudo que temos hoje.",
+                "Cada foto nossa conta uma história, cada lembrança guarda um sorriso. Nossa jornada é um álbum de momentos preciosos e únicos.",
+                "Quando folheio as páginas da nossa história, encontro em cada capítulo uma razão para sorrir e agradecer por ter você ao meu lado.",
+                "Já estamos a algum tempinho juntos, mas sei que é só o começo. Mas mesmo assim quando olho em seus olhos ainda fico perdido no seu olhar, o mesmo eu digo para seu sorriso que me faz me perder."
+            ],
+            grateful: [
+                "Obrigado(a) por ser minha luz nos dias escuros, minha força nos momentos difíceis e minha alegria em todos os dias.",
+                "Sou grato(a) por cada 'bom dia', cada abraço, cada 'eu te amo'. Você transformou minha vida em um lugar melhor em literalmente um sonho.",
+                "Agradeço todos os dias por ter encontrado em você não apenas um amor, mas uma melhor amiga, uma companheira de vida.",
+                "Você me ensinou que amar é mais que sentir - é escolher todos os dias construir algo belo juntos."
+            ],
+            dreamy: [
+                "Sonho com nosso futuro, cheio de aventuras que ainda vamos viver juntos, com muitas conquistas, sonhos realizados, e tudo que nos desejamos.",
+                "Imagino nós dois, daqui a 50 anos, ainda de mãos dadas, ainda rindo das mesmas piadas, ainda apaixonados como no primeiro dia.",
+                "Nossos sonhos se completam tanto que não sei mais quais são os meus  e quais os seus - e assim quero que seja para sempre. Pois seu sonho, se torna meu senho",
+                "Cada plano que fazemos juntos é uma semente de energia que plantamos para nós impulsionar cada dia mais e querermos realizar."
+            ]
+        };
+
+        function generateLetter() {
+            const mood = document.getElementById('letterMood').value;
+            const letterContent = document.getElementById('letterContent');
+            const letterDate = document.getElementById('letterDate');
+
+            // Atualizar data
+            const now = new Date();
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                weekday: 'long'
+            };
+            letterDate.textContent = now.toLocaleDateString('pt-BR', options);
+
+            // Selecionar mensagem aleatória baseada no humor
+            const messages = loveLetters[mood];
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+
+            // Adicionar introdução e conclusão personalizadas
+            const introductions = [
+                "Meu amor,",
+                "Minha BigMonster",
+                "Minha Princesa,",
+                "Amor da minha vida,",
+                "Minha gatinha,"
+            ];
+
+            const conclusions = [
+                "Cada dia ao seu lado é um presente que desembrulho com carinho.",
+                "Você é a melhor parte dos meus dias e a promessa dos meus sonhos.",
+                "Obrigado por me amar exatamente como eu sou.",
+                "Nossa história de amor é minha favorita de todas que já foram contadas.",
+                "Te amo hoje, te amarei amanhã e te amarei para sempre."
+            ];
+
+            const intro = introductions[Math.floor(Math.random() * introductions.length)];
+            const conclusion = conclusions[Math.floor(Math.random() * conclusions.length)];
+
+            // Animar escrita da carta
+            letterContent.innerHTML = '<p>Escrevendo...</p>';
+
+            setTimeout(() => {
+                letterContent.innerHTML = `
+                    <p>${intro}</p>
+                    <p>${randomMessage}</p>
+                    <p>${conclusion}</p>
+                `;
+
+                // Efeito de máquina de escrever
+                const paragraphs = letterContent.querySelectorAll('p');
+                paragraphs.forEach((p, index) => {
+                    p.style.opacity = '0';
+                    setTimeout(() => {
+                        p.style.opacity = '1';
+                        p.style.animation = 'fadeInUp 0.8s ease';
+                    }, index * 500);
+                });
+            }, 1000);
+        }
+
+        // Animar elementos no scroll
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Executar uma vez no carregamento
+
+
+        // Easter egg - clique triplo no título
+        let clickCount = 0;
+        document.querySelector('.hero h1').addEventListener('click', () => {
+            clickCount++;
+            if (clickCount === 3) {
+                alert('💜 Você descobriu nosso segredo! Nosso amor é infinito! 💜');
+                clickCount = 0;
+            }
+            setTimeout(() => clickCount = 0, 2000);
+        });
+
+        function createRainHearts() {
+            const rainContainer = document.getElementById('rainHearts');
+
+            function createRainHeart() {
+                const heart = document.createElement('div');
+                heart.className = 'rain-heart';
+                heart.innerHTML = '💜';
+
+                // Posição aleatória na horizontal
+                heart.style.left = Math.random() * 100 + '%';
+
+                // Tamanho aleatório
+                heart.style.fontSize = (Math.random() * 10 + 12) + 'px';
+
+                // Duração aleatória da animação
+                heart.style.animationDuration = (Math.random() * 3 + 6) + 's';
+
+                // Delay aleatório
+                heart.style.animationDelay = Math.random() * 2 + 's';
+
+                rainContainer.appendChild(heart);
+
+                // Remover após a animação
+                setTimeout(() => {
+                    if (heart.parentNode) {
+                        heart.remove();
+                    }
+                }, 10000);
+            }
+
+            // Criar corações periodicamente
+            setInterval(() => {
+    for (let i = 0; i < 2; i++) {
+        createRainHeart();
+    }
+}, 600);
+        }
+
+        // Função para upload da foto do casal
+        function setupCouplePhoto() {
+            const couplePhoto = document.getElementById('couplePhoto');
+            const couplePhotoInput = document.getElementById('couplePhotoInput');
+
+            couplePhoto.addEventListener('click', () => {
+                couplePhotoInput.click();
+            });
+
+            couplePhotoInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.alt = 'Foto do Casal';
+
+                        // Substituir o placeholder pela imagem
+                        couplePhoto.innerHTML = '';
+                        couplePhoto.appendChild(img);
+
+                        // Adicionar efeito especial
+                        couplePhoto.style.animation = 'pulse 1s ease-in-out';
+                        setTimeout(() => {
+                            couplePhoto.style.animation = '';
+                        }, 1000);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        // Função para upload das fotos da timeline
+        function setupTimelinePhotos() {
+            const timelinePhotos = document.querySelectorAll('.timeline-photo');
+
+            timelinePhotos.forEach(photo => {
+                const input = photo.querySelector('.timeline-photo-input');
+                const timelineId = photo.getAttribute('data-timeline');
+
+                photo.addEventListener('click', () => {
+                    input.click();
+                });
+
+                input.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            const img = document.createElement('img');
+                            img.src = e.target.result;
+                            img.alt = `Foto ${timelineId}`;
+
+                            // Substituir o placeholder pela imagem
+                            photo.innerHTML = '';
+                            photo.appendChild(img);
+
+                            // Efeito visual
+                            photo.style.animation = 'fadeInUp 0.8s ease';
+                            setTimeout(() => {
+                                photo.style.animation = '';
+                            }, 800);
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            });
+        }
+
+
+        createRainHearts();
+        setupCouplePhoto();
+        setupTimelinePhotos();
+    </script>
+</body>
+
+</html>
